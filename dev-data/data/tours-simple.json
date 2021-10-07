@@ -157,5 +157,17 @@
     "priceDiscount": 4,
     "imageCover": "tour-2-cover.jpg",
     "summary": "test Tour summary"
+  },
+  {
+    "id": 11,
+    "name": "Brand New Tourxxx",
+    "duration": 5,
+    "secretTour": false,
+    "maxGroupSize": 25,
+    "difficulty": "easy",
+    "price": 397,
+    "priceDiscount": 4,
+    "imageCover": "tour-2-cover.jpg",
+    "summary": "test Tour summary"
   }
 ]

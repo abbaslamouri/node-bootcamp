@@ -5,11 +5,21 @@ const tours = JSON.parse(
 )
 
 exports.checkId = (req, res, next, val) => {
-  console.log("VAL", val)
+  console.log('VAL', val)
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
       status: 'fail',
       message: 'Invalid ID',
+    })
+  }
+  next()
+}
+
+exports.checkBody = (req, res, next) => {
+  if (!req.body.name || !req.body.price) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'MIssing name or price',
     })
   }
   next()
@@ -25,6 +35,12 @@ exports.gettAllTours = (req, res) => {
 
 exports.getTour = (req, res) => {
   const tour = tours.find((item) => item.id === req.params.id * 1)
+  if (!tour) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Unable to find a tour with this ID',
+    })
+  }
   res.status(200).json({
     status: 'succes',
     data: { tour },
@@ -36,7 +52,7 @@ exports.createTour = (req, res) => {
   tours.push(newTour)
   console.log(tours)
   fs.writeFile(
-    `${__dirname}/dev-data/data/tours-simple.json`,
+    `${__dirname}/../dev-data/data/tours-simple.json`,
     JSON.stringify(tours),
     (err) => {
       if (err) res.status(400).send(err)
