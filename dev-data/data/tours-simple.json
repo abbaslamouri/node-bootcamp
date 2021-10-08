@@ -133,41 +133,5 @@
     "imageCover": "tour-9-cover.jpg",
     "images": ["tour-9-1.jpg", "tour-9-2.jpg", "tour-9-3.jpg"],
     "startDates": ["2021-12-16,10:00", "2022-01-16,10:00", "2022-12-12,10:00"]
-  },
-  {
-    "name": "Brand New Tour",
-    "duration": 5,
-    "secretTour": false,
-    "maxGroupSize": 25,
-    "difficulty": "easy",
-    "price": 397,
-    "priceDiscount": 4,
-    "imageCover": "tour-2-cover.jpg",
-    "summary": "test Tour summary",
-    "id": 9
-  },
-  {
-    "id": 10,
-    "name": "Brand New Tour",
-    "duration": 5,
-    "secretTour": false,
-    "maxGroupSize": 25,
-    "difficulty": "easy",
-    "price": 397,
-    "priceDiscount": 4,
-    "imageCover": "tour-2-cover.jpg",
-    "summary": "test Tour summary"
-  },
-  {
-    "id": 11,
-    "name": "Brand New Tourxxx",
-    "duration": 5,
-    "secretTour": false,
-    "maxGroupSize": 25,
-    "difficulty": "easy",
-    "price": 397,
-    "priceDiscount": 4,
-    "imageCover": "tour-2-cover.jpg",
-    "summary": "test Tour summary"
   }
 ]

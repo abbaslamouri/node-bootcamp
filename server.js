@@ -19,7 +19,7 @@ mongoose
   })
   .then((connection) => {
     // console.log(connection.connections)
-    console.log(`DB connection on port successful...`)
+    console.log(`DB connection successful...`)
   })
 
 // const testTour = new Tour({
