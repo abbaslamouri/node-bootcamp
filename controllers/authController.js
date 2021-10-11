@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken')
 const { promisify } = require('util')
 const User = require('../models/userModel.js')
 const AppError = require('../utils/AppError')
-catchAsync = require('../utils/catchAsync')
+const catchAsync = require('../utils/catchAsync')
+const sendEmail = require('../utils/mail')
 
 const signToken = async (id) => {
   return promisify(jwt.sign)({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION })
@@ -58,10 +59,29 @@ exports.checkAuth = catchAsync(async (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
-    console.log('WWWWWWWWWWW', roles, req.user.role)
-
     if (!roles.includes(req.user.role))
       return next(new AppError('You do not have adequate permisson to perform this action', 403))
     next()
   }
 }
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  const { email } = req.body
+  if (!email) return next(new AppError('Please enter a valid email', 404))
+
+  const user = await User.findOne({ email })
+  if (!user) return next(new AppError('We cannot find user with this email in our database', 404))
+
+  const resetToken = await user.createPasswordResetToken()
+  user.save({ validateBeforeSave: false })
+})
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  const user = await User.findOne({ email }).select('+password')
+  if (!user || !(await user.checkPassword(password, user.password)))
+    return next(new AppError('Invalid email or password', 401))
+  res.status(200).json({
+    status: 'success',
+    token: await signToken(user._id),
+  })
+})
