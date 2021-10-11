@@ -12,7 +12,10 @@ class APIFeatures {
 
     // Advanced filtering
     let queryString = JSON.stringify(queryObjClone)
-    queryString = queryString.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`)
+    queryString = queryString.replace(
+      /\b(gte|gt|lte|lt)\b/g,
+      (match) => `$${match}`
+    )
     console.log('PPPPP', this.queryObj, queryObjClone, JSON.parse(queryString))
 
     this.query = this.query.find(JSON.parse(queryString))
@@ -44,7 +47,7 @@ class APIFeatures {
 
   paginate() {
     const page = this.queryObj.page * 1 || 1
-    const limit = this.queryObj.limit * 1 || 5
+    const limit = this.queryObj.limit * 1 || 100
     const skip = (page - 1) * limit
     this.query = this.query.skip(skip).limit(limit)
 
