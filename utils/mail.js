@@ -14,7 +14,7 @@ const sendEmail = async (options) => {
     from: 'WEB SITE <abbaslamouri@yrlus.com',
     to: options.to,
     subject: options.subject,
-    nbody: options.body,
+    text: options.text,
     // html:
   }
 
