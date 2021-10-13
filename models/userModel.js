@@ -43,12 +43,17 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['user', 'quide', 'lead-guide', 'admin'],
+      enum: ['user', 'guide', 'lead-guide', 'admin'],
       default: 'user',
     },
     passwordChangeDate: Date,
     passwordResetToken: String,
     passwordResetExpires: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false,
+    },
   },
   {
     // toJSON: { virtuals: true },
@@ -74,6 +79,12 @@ userSchema.pre('save', async function (next) {
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password') || this.isNew) return next()
   this.passwordChangeDate = Date.now() - 1000
+  next()
+})
+
+// Query Middleware
+userSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: false } })
   next()
 })
 
