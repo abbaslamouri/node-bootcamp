@@ -91,13 +91,6 @@
     "tour": "5c88fa8cf4afda39709c2974"
   },
   {
-    "_id": "5c8a381714eb5c17645c9115",
-    "review": "Porttitor ullamcorper rutrum semper proin mus felis varius convallis conubia nisl erat lectus eget.",
-    "rating": 5,
-    "user": "5c8a1ec62f8fb814b56fa183",
-    "tour": "5c88fa8cf4afda39709c2951"
-  },
-  {
     "_id": "5c8a382d14eb5c17645c9116",
     "review": "Semper blandit felis nostra facilisi sodales pulvinar habitasse diam sapien lobortis urna nunc ipsum orci.",
     "rating": 5,
@@ -168,13 +161,6 @@
     "tour": "5c88fa8cf4afda39709c2955"
   },
   {
-    "_id": "5c8a395b14eb5c17645c9120",
-    "review": "Sem feugiat sed lorem vel dignissim platea habitasse dolor suscipit ultricies dapibus",
-    "rating": 5,
-    "user": "5c8a20d32f8fb814b56fa187",
-    "tour": "5c88fa8cf4afda39709c2951"
-  },
-  {
     "_id": "5c8a399014eb5c17645c9121",
     "review": "Tortor dolor sed vehicula neque ultrices varius orci feugiat dignissim auctor consequat.",
     "rating": 4,
@@ -197,7 +183,7 @@
   },
   {
     "_id": "5c8a3a7014eb5c17645c9124",
-    "review": "Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duis",
+    "review": "Blandit varius nascetur est felis praesent lorem himenaeos pretium dapibus tellus bibendum consequat ac duisxxx",
     "rating": 5,
     "user": "5c8a23c82f8fb814b56fa18d",
     "tour": "5c88fa8cf4afda39709c2955"
@@ -239,14 +225,14 @@
   },
   {
     "_id": "5c8a3b1e14eb5c17645c912a",
-    "review": "Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urna.",
+    "review": "Curabitur maximus montes vestibulum nulla vel dictum cubilia himenaeos nunc hendrerit amet urnadsaddas.",
     "rating": 5,
     "user": "5c8a23de2f8fb814b56fa18e",
     "tour": "5c88fa8cf4afda39709c296c"
   },
   {
     "_id": "5c8a3b3214eb5c17645c912b",
-    "review": "Sociosqu eleifend tincidunt aenean condimentum gravida lorem arcu pellentesque felis dui feugiat nec.",
+    "review": "Sociosqu eleifend tincidunt aenean condimentum gravida lorem arcu pellentesque felis dui feugiat necasasdasd.",
     "rating": 5,
     "user": "5c8a23de2f8fb814b56fa18e",
     "tour": "5c88fa8cf4afda39709c2974"
@@ -274,14 +260,14 @@
   },
   {
     "_id": "5c8a3b9f14eb5c17645c9130",
-    "review": "Tempor pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.",
+    "review": "Tempor asdas v pellentesque eu placerat auctor enim nam suscipit tincidunt natoque ipsum est.",
     "rating": 5,
     "user": "5c8a24282f8fb814b56fa18f",
     "tour": "5c88fa8cf4afda39709c295a"
   },
   {
     "_id": "5c8a3bc414eb5c17645c9131",
-    "review": "Conubia semper efficitur rhoncus suspendisse taciti lectus ex sapien dolor molestie fusce class.",
+    "review": "Conubia asdasd semper efficitur rhoncus suspendisse taciti lectus ex sapien dolor molestie fusce class.",
     "rating": 5,
     "user": "5c8a24282f8fb814b56fa18f",
     "tour": "5c88fa8cf4afda39709c2961"
@@ -302,7 +288,7 @@
   },
   {
     "_id": "5c8a3c2514eb5c17645c9134",
-    "review": "Euismod suscipit ipsum efficitur rutrum dis mus dictumst laoreet lectus.",
+    "review": "Euismod asdasd  suscipit ipsum efficitur rutrum dis mus dictumst laoreet lectus.",
     "rating": 5,
     "user": "5c8a245f2f8fb814b56fa191",
     "tour": "5c88fa8cf4afda39709c2951"
@@ -323,7 +309,7 @@
   },
   {
     "_id": "5c8a3c6814eb5c17645c9137",
-    "review": "Tristique semper proin pellentesque ipsum urna habitasse venenatis tincidunt morbi nisi at",
+    "review": "Tristique asdasd semper proin pellentesque ipsum urna habitasse venenatis tincidunt morbi nisi at",
     "rating": 4,
     "user": "5c8a245f2f8fb814b56fa191",
     "tour": "5c88fa8cf4afda39709c295d"
@@ -379,7 +365,7 @@
   },
   {
     "_id": "5c8a3d5314eb5c17645c913f",
-    "review": "Ultrices nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus",
+    "review": "Ultrices sasads nam dui ex posuere velit varius himenaeos bibendum fermentum sollicitudin purus",
     "rating": 5,
     "user": "5c8a24822f8fb814b56fa192",
     "tour": "5c88fa8cf4afda39709c2974"

@@ -16,7 +16,6 @@ class APIFeatures {
       /\b(gte|gt|lte|lt)\b/g,
       (match) => `$${match}`
     )
-    console.log('PPPPP', this.queryObj, queryObjClone, JSON.parse(queryString))
 
     this.query = this.query.find(JSON.parse(queryString))
 
@@ -37,7 +36,6 @@ class APIFeatures {
   fields() {
     if (this.queryObj.fields) {
       const fields = this.queryObj.fields.split(',').join(' ')
-      console.log(fields)
       this.query = this.query.select(fields)
     } else {
       this.query = this.query.select('-__v')
