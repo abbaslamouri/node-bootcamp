@@ -8,6 +8,8 @@ const {
   deleteTour,
   getTourStats,
   getMonthlyPlan,
+  getToursWithin,
+  getDistances,
 } = require('../controllers/tourController')
 const { checkAuth, restrictTo } = require('../controllers/authController')
 
@@ -21,6 +23,9 @@ router.use('/:tourId/reviews', reviewRouter)
 router.route('/cheapest5').get(cheapest5Alias, getAllTours)
 router.route('/tour-stats').get(getTourStats)
 router.route('/monthly-plan/:year').get(checkAuth, restrictTo('admin', 'lead-guide', 'guide'), getMonthlyPlan)
+
+router.route('/tours-within/:distance/center/:latlgt/unit/:unit').get(getToursWithin)
+router.route('/distances/:latlgt/unit/:unit').get(getDistances)
 
 router.route('/').get(getAllTours).post(checkAuth, restrictTo('admin', 'lead-guide'), createTour)
 router

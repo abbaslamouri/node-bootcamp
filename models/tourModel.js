@@ -39,6 +39,7 @@ const tourSchema = new mongoose.Schema(
       default: 4.5,
       min: [0, 'Ratings must be >=  0'],
       max: [5, 'Ratings must be <= to 5'],
+      set: (val) => Math.round(val * 10) / 10,
     },
     ratingsQuantity: {
       type: Number,
@@ -57,6 +58,10 @@ const tourSchema = new mongoose.Schema(
         },
         message: `Discount ({VALUE}) cannot be greater than price`,
       },
+    },
+    summary: {
+      type: String,
+      trim: true,
     },
     description: {
       type: String,
@@ -97,7 +102,7 @@ const tourSchema = new mongoose.Schema(
         },
         coordinates: [Number],
         address: String,
-        Description: String,
+        description: String,
         day: Number,
       },
     ],
@@ -111,6 +116,7 @@ const tourSchema = new mongoose.Schema(
 
 tourSchema.index({ price: 1, ratingsAverage: -1 })
 tourSchema.index({ slug: 1 })
+tourSchema.index({ startLocation: '2dsphere' })
 
 tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7
@@ -150,9 +156,9 @@ tourSchema.pre(/^find/, function (next) {
 })
 
 // Aggregation Middleware
-tourSchema.pre('aggregate', function (next) {
-  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } })
-  next()
-})
+// tourSchema.pre('aggregate', function (next) {
+//   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } })
+//   next()
+// })
 
 module.exports = mongoose.model('Tour', tourSchema)

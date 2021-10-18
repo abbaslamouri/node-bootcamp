@@ -31,6 +31,8 @@ const reviewSchema = new mongoose.Schema(
   }
 )
 
+reviewSchema.index({ tour: 1, user: 1 }, { unique: true })
+
 // reviewSchema.virtual('durationWeeks').get(function () {
 //   return this.duration / 7
 // })

@@ -64,10 +64,27 @@ exports.login = catchAsync(async (req, res, next) => {
   // })
 })
 
+exports.logout = catchAsync(async (req, res, next) => {
+  const cookieOptions = {
+    expires: new Date(Date.now() + 1000),
+    httpOnly: true,
+  }
+
+  res.cookie('jwt', '', cookieOptions)
+
+  res.status(200).json({
+    status: 'success',
+    data: null,
+  })
+})
+
 exports.checkAuth = catchAsync(async (req, res, next) => {
   let token = ''
-  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1]
+  } else if (req.cookies && req.cookies.jwt) {
+    token = req.cookies.jwt
+  }
 
   if (!token) return next(new AppError('You are not allowed to access these resources, please login', 401))
 
@@ -82,6 +99,20 @@ exports.checkAuth = catchAsync(async (req, res, next) => {
 
   next()
 })
+
+exports.isLoggedIn = async (req, res, next) => {
+  if (!req.cookies || !req.cookies.jwt) return next()
+
+  const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+  const user = await User.findById(decoded.id)
+  if (!user) return next()
+
+  if (await user.hasPasswordChanged(decoded.iat)) return next()
+
+  res.locals.user = user
+
+  next()
+}
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
